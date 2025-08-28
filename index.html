@@ -42,7 +42,7 @@
           <button
             class="btn rounded-full pointer-events-none px-8 bg-green-600 text-white"
           >
-            0 <span>Copy</span>
+            <span id="copy-number">0</span>Copy
           </button>
         </div>
       </nav>
@@ -218,7 +218,10 @@
             <h2 class="text-xl font-bold">
               <i class="fa-regular fa-clock"></i> Call History
             </h2>
-            <button class="btn px-10 bg-green-700 rounded-xl text-white">
+            <button
+              id="btn-clear"
+              class="btn px-10 bg-green-700 rounded-xl text-white"
+            >
               Clear
             </button>
           </div>

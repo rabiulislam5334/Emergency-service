@@ -13,7 +13,7 @@ getElement("service-box").addEventListener("click", function (e) {
     console.log(loveCount);
   }
 });
-// main
+// main call number
 getElement("service-box").addEventListener("click", function (e) {
   if (e.target.className.includes("btn-call")) {
     const card = e.target.closest(".service-card");
@@ -58,3 +58,38 @@ function showTime() {
 
   return `${hours}:${minutes}:${seconds} ${ampm}`;
 }
+// clear button
+getElement("btn-clear").addEventListener("click", function () {
+  const container = getElement("history-container");
+  container.innerHTML = "";
+});
+// copy number
+/*getElement("service-box").addEventListener("click", function (e) {
+  if (e.target.className.includes("btn-copy")) {
+    const copyCount = getElement("copy-number").innerText;
+    const count = parseInt(copyCount) + 1;
+    getElement("copy-number").innerText = count;
+  }
+});*/
+getElement("service-box").addEventListener("click", function (e) {
+  if (e.target.classList.contains("btn-copy")) {
+    // count বাড়ানো
+    const copyCount = parseInt(getElement("copy-number").innerText);
+    getElement("copy-number").innerText = copyCount + 1;
+
+    // card থেকে নম্বর নেওয়া (ধরা যাক .card-title2 তে আছে)
+    const card = e.target.closest(".service-card");
+    const callNumber = card.querySelector(".card-title2").innerText;
+
+    // clipboard এ কপি
+    navigator.clipboard
+      .writeText(callNumber)
+      .then(() => {
+        console.log("Copied:", callNumber);
+        alert(`✅ Number copied: ${callNumber}`);
+      })
+      .catch((err) => {
+        console.error("Copy failed", err);
+      });
+  }
+});
