@@ -28,7 +28,7 @@ getElement("service-box").addEventListener("click", function (e) {
       const newHistory = document.createElement("div");
       newHistory.innerHTML = `
       <div
-              class="flex justify-between items-center my-5 bg-slate-200 p-3 rounded-xl"
+              class="flex justify-between items-center my-5 shadow bg-slate-100 p-3 rounded-xl"
             >
               <div>
                 <h2 class="text-lg lg:text-base font-bold">${cardTitle}</h2>
